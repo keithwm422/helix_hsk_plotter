@@ -2,7 +2,7 @@
 #include <cstdio>
 Int_t* GetColors( Int_t type, Int_t ndata );
 
-void gaspanel_hsk( const char* fname = "hsk_merged.root" )
+void gaspanel_hsk( const char* fname = "/home/kmcbride/hsk_plotter/helix_hsk_plotter/hsk_store_2024-01-29_02:36:48.587921000Z.root" )
 {
 
   // timestamp epoch start is 
@@ -63,8 +63,9 @@ void gaspanel_hsk( const char* fname = "hsk_merged.root" )
   Double_t miny=0.9*TMath::MinElement(gCO2->GetN(),gCO2->GetY());
   Double_t maxx=1.1*TMath::MaxElement(gCO2->GetN(),gCO2->GetX());
   Double_t minx=0.9*TMath::MinElement(gCO2->GetN(),gCO2->GetX());
-  TH1F *frame = gPad->DrawFrame(1697119200.0-toffset, miny, 1697137620.0-toffset, maxy );
-  //TH1F *frame = gPad->DrawFrame(0, 0, 7200, 50 );
+  //TH1F *frame = gPad->DrawFrame(1697119200.0-toffset, miny, 1697137620.0-toffset, maxy );
+  //TH1F *frame = gPad->DrawFrame(0, miny, 7200, maxy );
+  TH1F *frame = gPad->DrawFrame(0, 0, 7200, 250 );
   frame->GetXaxis()->SetTitle( "Time (sec)" );
   frame->GetYaxis()->SetTitle( "Flow" );
   TLegend *leg = new TLegend( 0.65, 0.90, 0.87, 0.98);
